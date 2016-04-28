@@ -18,19 +18,19 @@ import edu.stanford.ramcloud.*;
 
 public class RC_client {
 	
-		private static final int BUFFER_SIZE =1048576; //1024*1024
+	private static final int BUFFER_SIZE =1048576; //1024*1024
 		
-		public static void main(String[] args) throws IOException {
-			// TODO Auto-generated method stub
-			String locator = "tcp:host=10.13.30.242,port=11114";
-			String clusterName = "main";
-			//String srcFileName = "/home/hadoop/test.data";
-			//String dstFileName="/home/hadoop/test11.data";
-			String cmd = args[0];
-			String src = args[1];
-			//String dst = args[2];
-			if(cmd.equals("put"))
-				putToRC(locator, clusterName, src);
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		String locator = "tcp:host=10.13.30.199,port=11114";
+		String clusterName = "main";
+		//String srcFileName = "/home/hadoop/test.data";
+		//String dstFileName="/home/hadoop/test11.data";
+		String cmd = args[0];
+		String src = args[1];
+		//String dst = args[2];
+		if(cmd.equals("put"))
+			putToRC(locator, clusterName, src);
 			else if(cmd.equals("get")){
 				String dst = args[2];
 				getFromRC(locator, clusterName, src, dst);
@@ -126,5 +126,10 @@ public class RC_client {
 				//关闭连接和输出流
 				client.disconnect();
 				out.close();
+		}
+
+		public static void Rname(String locator, String clustreName, String oldFileName, String newFile)
+		{
+
 		}
 }
